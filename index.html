@@ -1,21 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>qTone update procedure — DNIPRO MODULAR</title>
     <script src="https://github.com/dbuezas/arduino-web-uploader/releases/download/v1.0.0/main.js"></script>
     <link rel="stylesheet" href="/styles/main.css">
+    <style>
+        .steps { max-width: 560px; margin: 0 auto 24px; padding: 0; list-style: none; line-height: 1.5; }
+        .steps li { width: auto; display: flex; gap: 12px; margin-bottom: 18px; }
+        .steps .num { opacity: .6; }
+        .steps .links a { margin-right: 14px; }
+        .note { margin-top: 8px; padding: 8px 12px; font-size: .8em;
+                border-left: 3px solid currentColor; background: rgba(255, 255, 255, .08); }
+        .version { text-align: center; margin-bottom: 16px; }
+        .upload { text-align: center; }
+    </style>
 </head>
 <body>
 <a href="https://www.dnipro-modular.net/"><img src="/img/logo.svg" alt="DNIPRO MODULAR" class="logo"></a>
 <h1>qTone update procedure</h1>
-<ul>
-    <li>1. Download & install CH340 driver. <a href="/drivers/CH34x_Install_V1.5.pkg"> MAC</a> <a href="/drivers/CH34x_Install_Windows_v3_4.zip">WIN</a></li> Do not install driver for MAC, if your OS version is higher then 10.14
-    <li>2. Connect qTone via micro USB cable. The cable should be data transferable.</li>
-    <li>3. Press Upload button.</li>
-    <li>4. Select USB port from the list. Press "Connect"</li>
+
+<ul class="steps">
+    <li>
+        <span class="num">1.</span>
+        <div>
+            Download &amp; install CH340 driver
+            <div class="links">
+                <a href="/drivers/CH34x_Install_V1.5.pkg">MAC</a>
+                <a href="/drivers/CH34x_Install_Windows_v3_4.zip">WIN</a>
+            </div>
+            <div class="note">Do not install the driver on macOS 10.14 or newer. It is already built in, and installing it causes a conflict.</div>
+        </div>
+    </li>
+    <li><span class="num">2.</span><div>Connect qTone via micro USB cable. The cable must support data transfer.</div></li>
+    <li><span class="num">3.</span><div>Press Upload button.</div></li>
+    <li><span class="num">4.</span><div>Select USB port from the list. Press "Connect".</div></li>
 </ul>
-<div>Version 2.2</div>
-<button data-preserve-html-node="true" arduino-uploader="" hex-href="/hex/qTONE_v_2_2.hex" board="nano" verify="">Upload <span class="upload-progress"></span></button>
-<span data-preserve-html-node="true" class="upload-progress"></span>
+
+<div class="version">Version 2.2</div>
+<div class="upload">
+    <button arduino-uploader hex-href="/hex/qTONE_v_2_2.hex" board="nano" verify>
+        Upload <span class="upload-progress"></span>
+    </button>
+</div>
+
 <div class="footer"><img src="/img/qtone-module.svg" alt="qTone"></div>
 </body>
 </html>
